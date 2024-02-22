@@ -32,10 +32,12 @@ kotlin {
                 implementation(compose.runtime)
                 implementation(compose.foundation)
                 implementation(compose.material)
+                implementation(compose.ui)
             }
         }
         val androidMain by getting {
             dependencies {
+                implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
             }
         }
         val iosX64Main by getting
