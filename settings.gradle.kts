@@ -1,7 +1,7 @@
-rootProject.name = "compose-multiplatform-library-template"
+rootProject.name = "compose-multiplatform-lifecycle-tracker"
 
 include(":sample:androidApp")
-include(":lib")
+include(":lifecycletracker")
 include(":sample:desktopApp")
 include(":sample:shared")
 

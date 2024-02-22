@@ -21,7 +21,7 @@ kotlin {
         iosSimulatorArm64(),
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            baseName = "lib"
+            baseName = "lifecycletracker"
             isStatic = true
         }
     }
