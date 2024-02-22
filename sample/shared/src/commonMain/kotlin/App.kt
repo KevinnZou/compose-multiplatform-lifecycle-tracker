@@ -6,12 +6,16 @@ import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import com.multiplatform.lifecycle.LifecycleEvent
+import com.multiplatform.lifecycle.LifecycleListener
+import com.multiplatform.lifecycle.LifecycleTracker
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 
@@ -21,6 +25,7 @@ fun App() {
     MaterialTheme {
         var greetingText by remember { mutableStateOf("Hello, World!") }
         var showImage by remember { mutableStateOf(false) }
+        LifecycleTest()
         Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
             Button(onClick = {
                 greetingText = "Hello, ${getPlatformName()}"
@@ -34,6 +39,23 @@ fun App() {
                     contentDescription = "Compose Multiplatform icon",
                 )
             }
+        }
+    }
+}
+
+@Composable
+private fun LifecycleTest() {
+    DisposableEffect(Unit) {
+        println("Lifecycle addListener")
+        val listener = object : LifecycleListener {
+            override fun onEvent(event: LifecycleEvent) {
+                println("Lifecycle: onEvent: $event")
+            }
+        }
+        LifecycleTracker.addListener(listener)
+        onDispose {
+            println("DisposableEffect: onDispose")
+            LifecycleTracker.removeListener(listener)
         }
     }
 }
