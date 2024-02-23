@@ -47,11 +47,12 @@ fun App() {
 private fun LifecycleTest() {
     DisposableEffect(Unit) {
         println("Lifecycle addListener")
-        val listener = object : LifecycleListener {
-            override fun onEvent(event: LifecycleEvent) {
-                println("Lifecycle: onEvent: $event")
+        val listener =
+            object : LifecycleListener {
+                override fun onEvent(event: LifecycleEvent) {
+                    println("Lifecycle: onEvent: $event")
+                }
             }
-        }
         LifecycleTracker.addListener(listener)
         onDispose {
             println("DisposableEffect: onDispose")

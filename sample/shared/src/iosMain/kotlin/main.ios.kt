@@ -4,6 +4,7 @@ import com.multiplatform.lifecyle.LifecycleComposeUIVCDelegate
 
 actual fun getPlatformName(): String = "iOS"
 
-fun MainViewController() = ComposeUIViewController({
-    delegate = LifecycleComposeUIVCDelegate(LifecycleTracker)
-}) { App() }
+fun MainViewController() =
+    ComposeUIViewController({
+        delegate = LifecycleComposeUIVCDelegate(LifecycleTracker)
+    }) { App() }

@@ -4,8 +4,6 @@ import MainView
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import com.multiplatform.lifecycle.LifecycleEvent
-import com.multiplatform.lifecycle.LifecycleListener
 import com.multiplatform.lifecycle.LifecycleTracker
 import com.multiplatform.lifecyle.AndroidLifecycleEventObserver
 
