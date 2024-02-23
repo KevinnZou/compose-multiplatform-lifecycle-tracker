@@ -10,7 +10,6 @@ import com.multiplatform.lifecycle.LifecycleTracker
 class LifecycleComposeUIVCDelegate(private val lifecycleTracker: LifecycleTracker) : ComposeUIViewControllerDelegate {
     override fun viewDidAppear(animated: Boolean) {
         super.viewDidAppear(animated)
-        println("OnResumeEvent")
         lifecycleTracker.notifyListeners(LifecycleEvent.OnResumeEvent)
     }
 
@@ -22,13 +21,11 @@ class LifecycleComposeUIVCDelegate(private val lifecycleTracker: LifecycleTracke
 
     override fun viewDidLoad() {
         super.viewDidLoad()
-        println("OnCreateEvent")
         lifecycleTracker.notifyListeners(LifecycleEvent.OnCreateEvent)
     }
 
     override fun viewWillAppear(animated: Boolean) {
         super.viewWillAppear(animated)
-        println("OnStartEvent")
         lifecycleTracker.notifyListeners(LifecycleEvent.OnStartEvent)
     }
 
