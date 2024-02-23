@@ -1,5 +1,6 @@
 # Compose Multiplatform Lifecycle Tracker
 
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.kevinnzou/compose-multiplatform-lifecycle-tracker.svg)](https://search.maven.org/artifact/io.github.kevinnzou/compose-multiplatform-lifecycle-tracker)
 [![Kotlin](https://img.shields.io/badge/kotlin-v1.9.21-blue.svg?logo=kotlin)](http://kotlinlang.org)
 [![Compose Multiplatform](https://img.shields.io/badge/Compose%20Multiplatform-v1.5.11-blue)](https://github.com/JetBrains/compose-multiplatform)
 
@@ -70,6 +71,8 @@ private fun LifecycleTest() {
 ```
 
 # Download
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.kevinnzou/compose-multiplatform-lifecycle-tracker.svg)](https://search.maven.org/artifact/io.github.kevinnzou/compose-multiplatform-lifecycle-tracker)
+
 This library is available on Maven Central. You can add it to your project by adding the following dependency to your `build.gradle.kts` file.
 
 ```kotlin
@@ -81,8 +84,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-              // use api since the desktop app need to access the Cef to initialize it.
-              implementation("io.github.kevinnzou:compose-multiplatform-lifecycle-tracker:1.0.0")
+              implementation("io.github.kevinnzou:compose-multiplatform-lifecycle-tracker:0.0.1")
             }
         }
     }
