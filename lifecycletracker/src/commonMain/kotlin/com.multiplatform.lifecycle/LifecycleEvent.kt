@@ -5,9 +5,14 @@ package com.multiplatform.lifecycle
  */
 sealed class LifecycleEvent {
     data object OnCreateEvent : LifecycleEvent()
+
     data object OnStartEvent : LifecycleEvent()
+
     data object OnResumeEvent : LifecycleEvent()
+
     data object OnPauseEvent : LifecycleEvent()
+
     data object OnStopEvent : LifecycleEvent()
+
     data object OnDestroyEvent : LifecycleEvent()
 }

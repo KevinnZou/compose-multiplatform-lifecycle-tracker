@@ -37,7 +37,7 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
+                implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
             }
         }
         val iosX64Main by getting
