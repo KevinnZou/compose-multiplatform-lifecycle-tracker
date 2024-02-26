@@ -13,7 +13,6 @@ import platform.darwin.NSObject
 @Suppress("unused")
 @OptIn(BetaInteropApi::class)
 class NSLifecycleListener(private val lifecycleTracker: LifecycleTracker) : NSObject() {
-
     @ObjCAction
     fun willEnterForeground(arg: NSNotification) {
         lifecycleTracker.notifyListeners(LifecycleEvent.OnStartEvent)

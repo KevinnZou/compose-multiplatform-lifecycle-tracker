@@ -18,11 +18,13 @@ import platform.UIKit.UIApplicationWillTerminateNotification
  */
 class LifecycleComposeUIVCDelegate(private val lifecycleTracker: LifecycleTracker) :
     ComposeUIViewControllerDelegate {
-
     private val nsLifecycleListener = NSLifecycleListener(lifecycleTracker)
 
     @OptIn(ExperimentalForeignApi::class)
-    fun addObserver(name: NSNotificationName, selectorName: String) {
+    fun addObserver(
+        name: NSNotificationName,
+        selectorName: String,
+    ) {
         NSNotificationCenter.defaultCenter.addObserver(
             nsLifecycleListener,
             selector = NSSelectorFromString("$selectorName:"),
