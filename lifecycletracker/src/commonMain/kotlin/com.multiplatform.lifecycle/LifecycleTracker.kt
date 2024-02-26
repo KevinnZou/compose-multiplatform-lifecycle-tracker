@@ -4,13 +4,13 @@ package com.multiplatform.lifecycle
  * Created By Kevin Zou On 2024/2/22
  */
 object LifecycleTracker {
-    private val lifecycleListeners = mutableListOf<LifecycleListener>()
+    private val lifecycleListeners = mutableListOf<LifecycleObserver>()
 
-    fun addListener(listener: LifecycleListener) {
+    fun addListener(listener: LifecycleObserver) {
         lifecycleListeners.add(listener)
     }
 
-    fun removeListener(listener: LifecycleListener) {
+    fun removeListener(listener: LifecycleObserver) {
         lifecycleListeners.remove(listener)
     }
 
