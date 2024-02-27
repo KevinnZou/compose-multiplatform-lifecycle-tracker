@@ -3,9 +3,22 @@ package com.multiplatform.lifecycle
 /**
  * Created By Kevin Zou On 2024/2/26
  */
+
 /**
  * Lifecycle states. You can consider the states as the nodes in a graph and
- * [Event]s as the edges between these nodes.
+ * [LifecycleEvent]s as the edges between these nodes.
+ *
+ * Possible transitions:
+ *
+ * ```
+ * [INITIALIZED] ──┐
+ *                 ↓
+ *         ┌── [CREATED] ──┐
+ *         ↓       ↑       ↓
+ *    [DESTROYED]  └── [STARTED] ──┐
+ *                         ↑       ↓
+ *                         └── [RESUMED]
+ * ```
  */
 enum class State {
     /**
