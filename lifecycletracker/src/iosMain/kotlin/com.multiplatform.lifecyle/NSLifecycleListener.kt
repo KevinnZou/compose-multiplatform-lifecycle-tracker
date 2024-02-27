@@ -15,26 +15,26 @@ import platform.darwin.NSObject
 class NSLifecycleListener(private val lifecycleTracker: LifecycleTracker) : NSObject() {
     @ObjCAction
     fun willEnterForeground(arg: NSNotification) {
-        lifecycleTracker.notifyListeners(LifecycleEvent.OnStartEvent)
+        lifecycleTracker.handleLifecycleEvent(LifecycleEvent.OnStartEvent)
     }
 
     @ObjCAction
     fun didBecomeActive(arg: NSNotification) {
-        lifecycleTracker.notifyListeners(LifecycleEvent.OnResumeEvent)
+        lifecycleTracker.handleLifecycleEvent(LifecycleEvent.OnResumeEvent)
     }
 
     @ObjCAction
     fun willResignActive(arg: NSNotification) {
-        lifecycleTracker.notifyListeners(LifecycleEvent.OnPauseEvent)
+        lifecycleTracker.handleLifecycleEvent(LifecycleEvent.OnPauseEvent)
     }
 
     @ObjCAction
     fun didEnterBackground(arg: NSNotification) {
-        lifecycleTracker.notifyListeners(LifecycleEvent.OnStopEvent)
+        lifecycleTracker.handleLifecycleEvent(LifecycleEvent.OnStopEvent)
     }
 
     @ObjCAction
     fun willTerminate(arg: NSNotification) {
-        lifecycleTracker.notifyListeners(LifecycleEvent.OnDestroyEvent)
+        lifecycleTracker.handleLifecycleEvent(LifecycleEvent.OnDestroyEvent)
     }
 }

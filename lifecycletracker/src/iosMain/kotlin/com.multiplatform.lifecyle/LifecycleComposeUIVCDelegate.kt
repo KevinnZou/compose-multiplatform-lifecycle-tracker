@@ -47,22 +47,22 @@ class LifecycleComposeUIVCDelegate(private val lifecycleTracker: LifecycleTracke
 
     override fun viewDidDisappear(animated: Boolean) {
         super.viewDidDisappear(animated)
-        lifecycleTracker.notifyListeners(LifecycleEvent.OnStopEvent)
+        lifecycleTracker.handleLifecycleEvent(LifecycleEvent.OnStopEvent)
     }
 
     override fun viewDidLoad() {
         super.viewDidLoad()
         addLifecycleObservers()
-        lifecycleTracker.notifyListeners(LifecycleEvent.OnCreateEvent)
+        lifecycleTracker.handleLifecycleEvent(LifecycleEvent.OnCreateEvent)
     }
 
     override fun viewWillAppear(animated: Boolean) {
         super.viewWillAppear(animated)
-        lifecycleTracker.notifyListeners(LifecycleEvent.OnStartEvent)
+        lifecycleTracker.handleLifecycleEvent(LifecycleEvent.OnStartEvent)
     }
 
     override fun viewWillDisappear(animated: Boolean) {
         super.viewWillDisappear(animated)
-        lifecycleTracker.notifyListeners(LifecycleEvent.OnPauseEvent)
+        lifecycleTracker.handleLifecycleEvent(LifecycleEvent.OnPauseEvent)
     }
 }
