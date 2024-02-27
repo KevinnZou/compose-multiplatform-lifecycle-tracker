@@ -7,7 +7,7 @@
 ![badge-android](http://img.shields.io/badge/platform-android-6EDB8D.svg?style=flat)
 ![badge-ios](http://img.shields.io/badge/platform-ios-CDCDCD.svg?style=flat)
 
-A library to track the lifecycle of page in Compose Multiplatform.
+A library to track the lifecycle of the application in Compose Multiplatform.
 
 # Setup
 To use this library, you need some setup in your project.
