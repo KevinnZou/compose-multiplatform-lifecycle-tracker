@@ -6,9 +6,10 @@ import com.multiplatform.lifecycle.LifecycleEvent
 import com.multiplatform.lifecycle.LifecycleTracker
 
 /**
- * Created By Kevin Zou On 2024/2/22
+ * An observer for Android lifecycle events.
  */
-class AndroidLifecycleEventObserver(private val lifecycleTracker: LifecycleTracker) : DefaultLifecycleObserver {
+class AndroidLifecycleEventObserver(private val lifecycleTracker: LifecycleTracker) :
+    DefaultLifecycleObserver {
     override fun onCreate(owner: LifecycleOwner) {
         super.onCreate(owner)
         lifecycleTracker.handleLifecycleEvent(LifecycleEvent.OnCreateEvent)

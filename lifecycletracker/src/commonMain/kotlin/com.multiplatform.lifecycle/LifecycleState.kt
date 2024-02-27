@@ -1,10 +1,6 @@
 package com.multiplatform.lifecycle
 
 /**
- * Created By Kevin Zou On 2024/2/26
- */
-
-/**
  * Lifecycle states. You can consider the states as the nodes in a graph and
  * [LifecycleEvent]s as the edges between these nodes.
  *
@@ -59,7 +55,9 @@ enum class State {
      * Resumed state for a LifecycleOwner. For an [android.app.Activity], this state
      * is reached after [onResume][android.app.Activity.onResume] is called.
      */
-    RESUMED;
+    RESUMED,
+
+    ;
 
     /**
      * Compares if this State is greater or equal to the given `state`.

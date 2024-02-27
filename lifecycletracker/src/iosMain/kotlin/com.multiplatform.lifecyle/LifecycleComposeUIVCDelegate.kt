@@ -14,7 +14,7 @@ import platform.UIKit.UIApplicationWillResignActiveNotification
 import platform.UIKit.UIApplicationWillTerminateNotification
 
 /**
- * Created By Kevin Zou On 2024/2/22
+ * A delegate for handling iOS lifecycle events in a Compose UI View Controller.
  */
 class LifecycleComposeUIVCDelegate(private val lifecycleTracker: LifecycleTracker) :
     ComposeUIViewControllerDelegate {

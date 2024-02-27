@@ -1,9 +1,9 @@
 package com.multiplatform.lifecycle
 
 /**
- * Created By Kevin Zou On 2024/2/22
+ * A lifecycle tracker that can be used to track the lifecycle of the application.
  */
-open class LifecycleTracker: Lifecycle() {
+open class LifecycleTracker : Lifecycle() {
     /**
      * Current state
      */
@@ -34,11 +34,7 @@ open class LifecycleTracker: Lifecycle() {
 
     override var currentState: State
         get() = state
-        /**
-         * Moves the Lifecycle to the given state and dispatches necessary events to the observers.
-         *
-         * @param state new state
-         */
+
         set(state) {
             moveToState(state)
         }

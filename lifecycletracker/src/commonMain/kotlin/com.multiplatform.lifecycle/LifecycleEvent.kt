@@ -1,7 +1,7 @@
 package com.multiplatform.lifecycle
 
 /**
- * Created By Kevin Zou On 2024/2/22
+ * Lifecycle events. These events can be used by developers to listen to the lifecycle of the application.
  */
 sealed class LifecycleEvent {
     data object OnCreateEvent : LifecycleEvent()

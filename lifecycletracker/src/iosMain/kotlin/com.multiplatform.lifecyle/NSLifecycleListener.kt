@@ -8,7 +8,7 @@ import platform.Foundation.NSNotification
 import platform.darwin.NSObject
 
 /**
- * Created By Kevin Zou On 2024/2/26
+ * A listener for iOS lifecycle events.
  */
 @Suppress("unused")
 @OptIn(BetaInteropApi::class)

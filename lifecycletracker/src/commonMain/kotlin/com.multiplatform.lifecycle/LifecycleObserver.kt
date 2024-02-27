@@ -1,7 +1,7 @@
 package com.multiplatform.lifecycle
 
 /**
- * Created By Kevin Zou On 2024/2/22
+ * A lifecycle tracker that can be used to track the lifecycle of a component.
  */
 interface LifecycleObserver {
     fun onEvent(event: LifecycleEvent) {
