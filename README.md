@@ -22,17 +22,21 @@ val androidMain by getting {
 }
 ```
 
-Then, you need to add the `AndroidLifecycleEventObserver` to your `Activity` or `Fragment` to track the lifecycle of the page. 
+Then, you need to add the `AndroidLifecycleEventObserver` to your `Activity` or `Fragment` to track the lifecycle of the page 
+and provide the `LifecycleTracker` to the `App` using `CompositionLocalProvider`.
 ```kotlin
 class MainActivity : AppCompatActivity() {
-    private val observer = AndroidLifecycleEventObserver(LifecycleTracker)
+    private val lifecycleTracker = LifecycleTracker()
+    private val observer = AndroidLifecycleEventObserver(lifecycleTracker)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         lifecycle.addObserver(observer)
 
         setContent {
-            MainView()
+            CompositionLocalProvider(LocalLifecycleTracker provides lifecycleTracker) {
+                MainView()
+            }
         }
     }
 
@@ -44,11 +48,19 @@ class MainActivity : AppCompatActivity() {
 ```
 
 ## iOS
-For iOS, you just need to set the 'LifecycleComposeUIVCDelegate' as the delegate of the `UIComposeViewController` to track the lifecycle of the page. 
+For iOS, you need to set the 'LifecycleComposeUIVCDelegate' as the delegate of the `UIComposeViewController` to track the lifecycle of the page 
+and provide the `LifecycleTracker` to the `App` using `CompositionLocalProvider`.
 ```kotlin
-fun MainViewController() = ComposeUIViewController({
-    delegate = LifecycleComposeUIVCDelegate(LifecycleTracker)
-}) { App() }
+fun MainViewController(): UIViewController {
+    val lifecycleTracker = LifecycleTracker()
+    return ComposeUIViewController({
+        delegate = LifecycleComposeUIVCDelegate(lifecycleTracker)
+    }) {
+        CompositionLocalProvider(LocalLifecycleTracker provides lifecycleTracker) {
+            App()
+        }
+    }
+}
 ```
 
 # Usage
@@ -56,15 +68,17 @@ The usage is quite simple, you just need to create a 'LifecycleListener' and add
 ```kotlin
 @Composable
 private fun LifecycleTest() {
+    val lifecycleTracker = LocalLifecycleTracker.current
     DisposableEffect(Unit) {
-        val listener = object : LifecycleListener {
-            override fun onEvent(event: LifecycleEvent) {
-                println("Lifecycle: onEvent: $event")
+        val listener =
+            object : LifecycleObserver {
+                override fun onEvent(event: LifecycleEvent) {
+                    println("Lifecycle: onEvent: $event")
+                }
             }
-        }
-        LifecycleTracker.addListener(listener)
+        lifecycleTracker.addObserver(listener)
         onDispose {
-            LifecycleTracker.removeListener(listener)
+            lifecycleTracker.removeObserver(listener)
         }
     }
 }
