@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import com.multiplatform.lifecycle.LifecycleEvent
 import com.multiplatform.lifecycle.LifecycleObserver
 import com.multiplatform.lifecycle.LifecycleTracker
+import com.multiplatform.lifecycle.LocalLifecycleTracker
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 
@@ -45,18 +46,17 @@ fun App() {
 
 @Composable
 private fun LifecycleTest() {
+    val lifecycleTracker = LocalLifecycleTracker.current
     DisposableEffect(Unit) {
-        println("Lifecycle addListener")
         val listener =
             object : LifecycleObserver {
                 override fun onEvent(event: LifecycleEvent) {
                     println("Lifecycle: onEvent: $event")
                 }
             }
-        LifecycleTracker.addListener(listener)
+        lifecycleTracker.addObserver(listener)
         onDispose {
-            println("DisposableEffect: onDispose")
-            LifecycleTracker.removeListener(listener)
+            lifecycleTracker.removeObserver(listener)
         }
     }
 }
