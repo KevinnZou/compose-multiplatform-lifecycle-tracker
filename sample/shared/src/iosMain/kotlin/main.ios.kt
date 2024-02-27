@@ -1,5 +1,4 @@
 import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.remember
 import androidx.compose.ui.window.ComposeUIViewController
 import com.multiplatform.lifecycle.LifecycleTracker
 import com.multiplatform.lifecycle.LocalLifecycleTracker
