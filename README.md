@@ -9,6 +9,8 @@
 
 A library to track the lifecycle of the application in Compose Multiplatform.
 
+<img src="readme_images/lifecycle_state_transition_graph.png" height="400">
+
 # Setup
 To use this library, you need some setup in your project.
 
