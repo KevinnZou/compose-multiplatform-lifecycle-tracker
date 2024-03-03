@@ -100,7 +100,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-              implementation("io.github.kevinnzou:compose-multiplatform-lifecycle-tracker:1.0.0")
+              api("io.github.kevinnzou:compose-multiplatform-lifecycle-tracker:1.0.0")
             }
         }
     }
