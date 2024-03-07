@@ -10,7 +10,7 @@ fun Lifecycle.addObserver(
     onPause: (() -> Unit)? = null,
     onStop: (() -> Unit)? = null,
     onDestroy: (() -> Unit)? = null,
-) {
+): LifecycleObserver {
     val observer =
         object : DefaultLifecycleObserver {
             override fun onCreate() {
@@ -38,4 +38,5 @@ fun Lifecycle.addObserver(
             }
         }
     addObserver(observer)
+    return observer
 }
